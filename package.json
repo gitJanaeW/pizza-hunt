@@ -11,6 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "mongoose": "^6.6.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitJanaeW/pizza-hunt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gitJanaeW/pizza-hunt/issues"
+  },
+  "homepage": "https://github.com/gitJanaeW/pizza-hunt#readme"
 }

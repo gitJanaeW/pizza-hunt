@@ -9,7 +9,7 @@ const getPizzaList = () => {
       pizzaListArr.forEach(printPizza);
     })
     .catch(err => console.log(err));
-}
+};
 
 const printPizza = ({ _id, pizzaName, toppings, size, commentCount, createdBy, createdAt }) => {
   const pizzaCard = `

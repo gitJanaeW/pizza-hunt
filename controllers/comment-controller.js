@@ -7,6 +7,7 @@ const commentController = {
       Comment.create(body)
        // update the pizza with a new comment
         .then(({ _id }) => {
+          console.log(params)
           return Pizza.findOneAndUpdate(
             { _id: params.pizzaId },
             // all Mongo methods start with a $. This Mongo method works the same as a JS push() function
@@ -17,12 +18,15 @@ const commentController = {
         // respond with new pizza data
         .then(dbPizzaData => {
           if (!dbPizzaData) {
-            res.status(404).json({ message: 'No pizza found with this id!' });
+            res.status(404).json({message: 'No pizza found with this id!'});
             return;
           }
           res.json(dbPizzaData);
         })
-        .catch(err => res.json(err));
+        .catch(err => {
+          console.log(err);
+          res.json(err);
+        });
     },
     // remove comment
     removeComment({ params }, res) {

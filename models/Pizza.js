@@ -13,6 +13,7 @@ const PizzaSchema = new Schema(
       createdAt: {
         type: Date,
         default: Date.now,
+        // get is a getter that will use the dateFormat function provided to format the date
         get: createdAtVal => dateFormat(createdAtVal)
       },
       size: {

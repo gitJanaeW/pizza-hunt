@@ -4,12 +4,12 @@ const pizzaController = {
     // get all pizzas
     getAllPizza(req, res) {
       Pizza.find({})
-        .populate({
+        .populate({ // populate shows us the information associted with this object id as opposed to just showing the id
           path: 'comments',
-          select: '-__v'
+          select: '-__v' // doesn't include the property __v which is the version number (not necessary)
         })
-        .select('-__v')
-        .sort({ _id: -1 })
+        .select('-__v') // again, excluding the version number
+        .sort({ _id: -1 }) // sorts in descending order (newest to oldest id)
         .then(dbPizzaData => res.json(dbPizzaData))
         .catch(err => {
           console.log(err);

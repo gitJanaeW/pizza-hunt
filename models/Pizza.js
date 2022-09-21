@@ -37,7 +37,7 @@ const PizzaSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true, // Virtuals automatically return an id. To turn this off, set id to false
+      virtuals: true, // Virtuals automatically return an id. To turn this off, set virtuals to false
       getters: true
     },
     // prevents virtuals from creating duplicate of _id as `id`

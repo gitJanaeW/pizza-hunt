@@ -12,7 +12,7 @@ const commentController = {
           { _id: params.pizzaId },
           // all Mongo methods start with a $. This Mongo method works the same as a JS push() function
           { $push: { comments: _id } },
-          { new: true }
+          { new: true, runValidators: true }
         );
       })
       // respond with new pizza data
@@ -32,7 +32,7 @@ const commentController = {
     Comment.findOneAndUpdate(
       {_id: params.commentId},
       {$push: {replies: body}},
-      {new: true}
+      {new: true, runValidators: true}
     )
       .then(data => {
         if (!data) {

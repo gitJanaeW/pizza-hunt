@@ -9,10 +9,13 @@ const ReplySchema = new Schema(
       default: () => new Types.ObjectId()
     },
     replyBody: {
-      type: String
+      type: String,
+      trim: true,
+      required: 'Reply body is empty'
     },
     writtenBy: {
-      type: String
+      type: String,
+      required: 'Username is not provided'
     },
     createdAt: {
       type: Date,
@@ -30,10 +33,13 @@ const ReplySchema = new Schema(
 const CommentSchema = new Schema(
   {
     writtenBy: {
-      type: String
+      type: String,
+      required: 'Username is not provided'
     },
     commentBody: {
-      type: String
+      type: String,
+      trim: true,
+      required: 'Comment body is empty'
     },
     replies: [ReplySchema], // this will nest the entire Reply object in the comment object
     createdAt: {
